@@ -1,29 +1,25 @@
 #include <stdio.h>
-
 /**
- * main - print first 50 Fibonacci numbers
+ * main - even libber abbaci
  *
- * Return: always 0
+ * Return: void
  */
 int main(void)
 {
-	int i;
-	unsigned long a = 1;
-	unsigned long b = 2;
-	unsigned long c = 3;
+	unsigned int i, j, y, k, s;
 
-	printf("1, 2, ");
-	for (i = 0; i < 48; i++)
+	i = 1;
+	j = 2;
+	y = 3;
+	k = 2;
+	for (s = 2; s <= 32; s++)
 	{
-		c = a + b;
-		printf("%ld", c);
-		a = b;
-		b = c;
-
-		if (i != 47)
-			printf(", ");
+		if (y % 2 == 0)
+			k = k + y;
+		i = j;
+		j = y;
+		y = i + j;
 	}
-	printf("\n");
-
+	printf("%u\n", k);
 	return (0);
 }
