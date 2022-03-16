@@ -1,18 +1,19 @@
-#include <stdio.h>
+#include "main.h"
 /**
- * prints putchar without uisng  stdlib
- */
-int main()
+ * main - Entry Point
+ *
+ * Return: Always 0 (Success)
+ **/
+int main(void)
 {
-	putchar('_');
-	putchar('p');
-	putchar('u');
-	putchar('t');
-	putchar('c');
-	putchar('h');
-	putchar('a');
-	putchar('r');
-	putchar('\n');
-	return 0;
-}
+	char a[] = "_putchar";
 
+	int c;
+
+	for (c = 0; c < 8; c++)
+	{
+		_putchar(a[c]);
+	}
+	_putchar('\n');
+	return (0);
+}
