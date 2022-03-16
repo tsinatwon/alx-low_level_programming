@@ -1,58 +1,41 @@
-/*
- * File: 104-fibonacci.c
- * Auth: tsinat wondimu
- */
-
-#include <stdio.h>
+#include<stdio.h>
 
 /**
- * main - Prints the first 98 Fibonacci numbers, starting with
- *        1 and 2, separated by a comma followed by a space.
+ * main - first 50 fibonatchi.
  *
- * Return: Always 0.
+ * Return: void.
  */
 int main(void)
 {
-	int count;
-	unsigned long fib1 = 0, fib2 = 1, sum;
-	unsigned long fib1_half1, fib1_half2, fib2_half1, fib2_half2;
-	unsigned long half1, half2;
+	unsigned long int i, i0, i1, j, j0, j1, e, e0, e1, y, k;
 
-	for (count = 0; count < 92; count++)
+	i = 1;
+	j = 2;
+	e = i + j;
+
+	printf("%lu, ", i);
+	printf("%lu, ", j);
+	for (y = 3; y < 89; y++)
 	{
-		sum = fib1 + fib2;
-		putchar(sum + '0');
-
-		fib1 = fib2;
-		fib2 = sum;
+		printf("%lu, ", e);
+		i = j;
+		j = e;
+		e = i + j;
 	}
-
-	fib1_half1 = fib1 / 10000000000;
-	fib2_half1 = fib2 / 10000000000;
-	fib1_half2 = fib1 % 10000000000;
-	fib2_half2 = fib2 % 10000000000;
-
-	for (count = 93; count < 99; count++)
+	j0 = j / 1000000000;
+	j1 = j % 1000000000;
+	e0 = e / 1000000000;
+	e1 = e % 1000000000;
+	for (k = 89; k < 98; k++)
 	{
-		half1 = fib1_half1 + fib2_half1;
-		half2 = fib1_half2 + fib2_half2;
-		if (fib1_half2 + fib2_half2 > 9999999999)
-		{
-			half1 += 1;
-			half2 %= 10000000000;
-		}
-
-		
-		putchar(half1 + '0');
-		putchar(half2 + '0');
-		if (count != 98)
-			putchar(',');
-
-		fib1_half1 = fib2_half1;
-		fib1_half2 = fib2_half2;
-		fib2_half1 = half1;
-		fib2_half2 = half2;
+		printf("%lu%lu, ", e0, e1);
+		i0 = j0;
+		i1 = j1;
+		j0 = e0;
+		j1 = e1;
+		e0 = i0 + j0 + ((i1 + j1) / 1000000000);
+		e1 = (i1 + j1) % 1000000000;
 	}
-	putchar('\n');
+printf("%lu%lu\n", e0, e1);
 	return (0);
 }
