@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * print_numbers - print all digit
+ * print_numbers - print numbers
  *
- * Return: void
+ * Description: prints the numbers, from 0 to 9, followed by a new line
+ * Return: Always (0)
  */
 
 void print_numbers(void)
