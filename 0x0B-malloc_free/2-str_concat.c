@@ -1,43 +1,40 @@
-#include <stdlib.h>
-#include <stdio.h>
+
 #include "main.h"
+#include <stdlib.h>
 
 /**
- * str_concat - concatnates two string
- * @s1: first string to be concatnated
- * @s2: last string to be concatnated
+ * str_concat - Concatenates two strings.
+ * @s1: The string to be concatenated upon.
+ * @s2: The string to be concatenated to s1.
  *
- * Return: combined string
+ * Return: If concatenation fails - NULL.
+ *         Otherwise - a pointer the newly-allocated space in memory
+ *                     containing the concatenated strings.
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *p;
-	int strlen1 = 0, strlen2 = 0, index, size = 0;
+	char *concat_str;
+	int index, concat_index = 0, len = 0;
 
-	if (*s1 == '\0')
+	if (s1 == NULL)
 		s1 = "";
-	if (*s2 == '\0')
+
+	if (s2 == NULL)
 		s2 = "";
-	while (s1 && s1[strlen1])
-		strlen1++;
-	while (s2 && s2[strlen2])
-		strlen2++;
-	size = strlen1 + strlen2 + 1;
 
-	if (size == 0)
-		return (0);
-	p = malloc(sizeof(char) * size);
-	if (p == NULL)
+	for (index = 0; s1[index] || s2[index]; index++)
+		len++;
+
+	concat_str = malloc(sizeof(char) * len);
+
+	if (concat_str == NULL)
 		return (NULL);
-	for (index = 0; index <= size ; index++)
-	{
-		if (index < strlen1)
-			p[index] = s1[index];
-		else if(index >=  strlen1 && index < size)
-			p[index] = s2[index - strlen1];
-		else
-			p[index] = '\0';
-	}
-	return (p);
-}
 
+	for (index = 0; s1[index]; index++)
+		concat_str[concat_index++] = s1[index];
+
+	for (index = 0; s2[index]; index++)
+		concat_str[concat_index++] = s2[index];
+
+	return (concat_str);
+}
