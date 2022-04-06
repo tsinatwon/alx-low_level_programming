@@ -18,9 +18,9 @@ char *str_concat(char *s1, char *s2)
 		s1 = "";
 	if (*s2 == '\0')
 		s2 = "";
-	while (*s1)
+	while (s1 && s1[strlen1])
 		strlen1++;
-	while (*s2)
+	while (s2 && s2[strlen2])
 		strlen2++;
 	size = strlen1 + strlen2 + 1;
 
@@ -33,8 +33,8 @@ char *str_concat(char *s1, char *s2)
 	{
 		if (index < strlen1)
 			p[index] = s1[index];
-		else if (index > strlen1 && index < size)
-			p[index] = s2[index];
+		else if(index >=  strlen1 && index < size)
+			p[index] = s2[index - strlen1];
 		else
 			p[index] = '\0';
 	}
