@@ -1,0 +1,1 @@
+this contains bit manipulations code for c 
