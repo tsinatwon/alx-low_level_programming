@@ -2,8 +2,8 @@
 /**
  * create_file - creates new file
  * @filename: accepts filename of the fie to be created
- * @text_content: te file to be copied 
- *
+ * @text_content: te file to be copied
+ * Return: 1 on success
  */
 int create_file(const char *filename, char *text_content)
 {
