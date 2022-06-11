@@ -20,5 +20,3 @@ int sum_dlistint(dlistint_t *head)
 	}
 	return (sum);
 }
-© 2022 GitHub, Inc.
-T
